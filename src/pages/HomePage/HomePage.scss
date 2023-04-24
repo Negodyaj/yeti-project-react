@@ -61,24 +61,6 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 103px 35px;
   }
-
-  .grid-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
-  .grid-item.wide {
-    grid-column: span 2;
-  }
-
-  .grid-item.with-top-margin {
-    margin-top: 50%;
-  }
-
-  img {
-    width: 100%;
-  }
 }
 
 .carousel-container {
@@ -172,15 +154,5 @@
     display: flex;
     gap: 20px;
     overflow: auto;
-  }
-
-  .catalog-section .grid-item.with-top-margin {
-    margin-top: 0;
-  }
-
-  .catalog-section img {
-    height: 350px;
-    width: 65.6vw;
-    object-fit: cover;
   }
 }
