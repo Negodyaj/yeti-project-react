@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.scss";
 import logo from './logo.svg';
 
@@ -7,21 +8,21 @@ export const Header = () => {
       <div className="container">
         <img src={logo} alt="Yeti logo" />
         <nav>
-          <a href="#" className="nav-link">
+          <Link to="/" className="nav-link">
             О МАГАЗИНЕ
-          </a>
-          <a href="catalog.html" className="nav-link">
+          </Link>
+          <Link to="/catalog" className="nav-link">
             КАТАЛОГ
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/" className="nav-link">
             КОНТАКТЫ
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/login" className="nav-link">
             ЛИЧНЫЙ КАБИНЕТ
-          </a>
-          <a href="#" className="nav-link">
+          </Link>
+          <Link to="/" className="nav-link">
             КОРЗИНА (0)
-          </a>
+          </Link>
         </nav>
         <button className="burger-menu mobile-only">...</button>
       </div>
