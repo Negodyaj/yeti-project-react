@@ -1,5 +1,10 @@
 export const LoginPage = () => {
   return (
-    <h1>Login Page works</h1>
+    <>
+      <h1>Log in</h1>
+      <form>
+        <button type="submit">Let me in</button>
+      </form>
+    </>
   )
 };
