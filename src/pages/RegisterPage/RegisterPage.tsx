@@ -1,7 +1,7 @@
 export const RegisterPage = () => {
   return (
     <>
-      <h1>Registration</h1>
+      <h1>Be a part of our life!</h1>
       <form>
         <label>First name: <input type="text" /></label>
         <label>Last name: <input type="text" /></label>
