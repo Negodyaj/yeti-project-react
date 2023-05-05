@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
 import "./Header.scss";
 import logo from './logo.svg';
+import { UserWidget } from "./shared/UserWidget/UserWidget";
+import { RootState } from "./store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "./shared/UserWidget/userWidget.slice";
 
 export const Header = () => {
+  const dispatch = useDispatch();
+  const userWidgetState = useSelector((state: RootState) => state.userWidget);
+  
+  const onLogOutClick = () => {
+    dispatch(logOut());
+  };
+
   return (
     <header>
       <div className="container">
@@ -17,12 +28,30 @@ export const Header = () => {
           <Link to="/" className="nav-link">
             КОНТАКТЫ
           </Link>
-          <Link to="/login" className="nav-link">
-            ЛИЧНЫЙ КАБИНЕТ
-          </Link>
+          {
+            userWidgetState.name && <Link to="/" className="nav-link">
+              ЛИЧНЫЙ КАБИНЕТ
+            </Link>
+          }
           <Link to="/" className="nav-link">
             КОРЗИНА (0)
           </Link>
+          {
+            !userWidgetState.name && <>
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+              <Link to="/register" className="nav-link">
+                Register
+              </Link>
+            </>
+          }
+          {
+            userWidgetState.name && <button onClick={onLogOutClick} className="nav-link">
+              Log out
+            </button>
+          }
+          <UserWidget />
         </nav>
         <button className="burger-menu mobile-only">...</button>
       </div>

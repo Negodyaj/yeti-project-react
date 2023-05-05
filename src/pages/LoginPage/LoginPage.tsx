@@ -1,5 +1,25 @@
+import { useDispatch } from "react-redux";
+import { loadUser } from "../../shared/UserWidget/userWidget.slice";
+
 export const LoginPage = () => {
+  const dispatch = useDispatch();
+
+  const setUserInfo = () => {
+    const payload = {
+      name: 'John Doe',
+      status: 'Regular'
+    };
+    dispatch(loadUser(payload));
+  }
+
   return (
-    <h1>Login Page works</h1>
+    <div className="container">
+      <h1>Login Page works</h1>
+      <form>
+        <label>Email: <input type="email" /></label>
+        <label>Password: <input type="password" /></label>
+        <button type="button" onClick={setUserInfo}>Let me in</button>
+      </form>
+    </div>
   )
 };
