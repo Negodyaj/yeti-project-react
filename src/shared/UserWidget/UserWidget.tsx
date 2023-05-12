@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from '../../store/store';
+import { useSelector } from 'react-redux';
 
 export const UserWidget = () => {
   const userWidgetState = useSelector((state: RootState) => state.userWidget);
@@ -11,4 +11,4 @@ export const UserWidget = () => {
       <div>{userWidgetState.status}</div>
     </div>
   );
-}
+};

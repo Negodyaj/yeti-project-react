@@ -1,61 +1,69 @@
 import './HomePage.scss';
-import { CategoriesGridItem, CategoriesGridItemProps } from './components/CategoriesGridItem/CategoriesGridItem';
+import {
+  CategoriesGridItem,
+  CategoriesGridItemProps,
+} from './components/CategoriesGridItem/CategoriesGridItem';
 import { HeroPart } from './components/HeroPart/HeroPart';
-import Snowboard from './assets/grid-item1.png';
+import { useEffect, useState } from 'react';
 import GridItem2 from './assets/grid-item2.png';
 import GridItem3 from './assets/grid-item3.png';
 import GridItem4 from './assets/grid-item4.png';
 import GridItem5 from './assets/grid-item5.png';
 import GridItem6 from './assets/grid-item6.png';
 import GridItem7 from './assets/grid-item7.png';
-import { useEffect, useState } from 'react';
+import Snowboard from './assets/grid-item1.png';
 
 export const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [categories, setCategories] = useState<CategoriesGridItemProps[]>([]);
-  
+
   useEffect(() => {
     // we need to get data from API
     // we are calling our backend and getting some data
     const backendResponse: CategoriesGridItemProps[] = [
       {
         imageSrc: Snowboard,
-        linkTitle: "СНОУБОРДЫ",
+        linkTitle: 'СНОУБОРДЫ',
         isWide: true,
         hasTopMargin: false,
-      }, {
+      },
+      {
         imageSrc: GridItem2,
-        linkTitle: "КРЕПЛЕНИЯ",
+        linkTitle: 'КРЕПЛЕНИЯ',
         isWide: false,
         hasTopMargin: true,
-      }, {
+      },
+      {
         imageSrc: GridItem3,
-        linkTitle: "БОТИНКИ",
+        linkTitle: 'БОТИНКИ',
         isWide: false,
         hasTopMargin: true,
-      }, {
+      },
+      {
         imageSrc: GridItem4,
-        linkTitle: "ОДЕЖДА",
+        linkTitle: 'ОДЕЖДА',
         isWide: true,
         hasTopMargin: false,
-      }, {
+      },
+      {
         imageSrc: GridItem5,
-        linkTitle: "МАСКИ",
+        linkTitle: 'МАСКИ',
         isWide: false,
         hasTopMargin: false,
-      }, {
+      },
+      {
         imageSrc: GridItem6,
-        linkTitle: "ШЛЕМЫ И ЗАЩИТА",
+        linkTitle: 'ШЛЕМЫ И ЗАЩИТА',
         isWide: false,
         hasTopMargin: false,
-      }, {
+      },
+      {
         imageSrc: GridItem7,
-        linkTitle: "АКСЕССУАРЫ",
+        linkTitle: 'АКСЕССУАРЫ',
         isWide: false,
         hasTopMargin: false,
-      }, 
+      },
     ];
-    console.log('useEffect');
     setCategories(backendResponse);
   }, []);
 
@@ -65,18 +73,17 @@ export const HomePage = () => {
 
   const doLeftSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
-    console.log(e);
     if (currentSlide > 0) {
       setCurrentSlide(currentSlide - 1);
     }
-  }
+  };
 
   const doRightSlide = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (currentSlide < 5) {
       setCurrentSlide(currentSlide + 1);
     }
-  }
+  };
 
   return (
     <>
@@ -91,16 +98,15 @@ export const HomePage = () => {
           <h2 className="common-section-header">КАТАЛОГ</h2>
         </div>
         <div className="categories-grid">
-          {
-            categories.map(category =>
-              <CategoriesGridItem
-                key={`category-${category.linkTitle}`}
-                imageSrc={category.imageSrc}
-                linkTitle={category.linkTitle}
-                isWide={category.isWide}
-                hasTopMargin={category.hasTopMargin} />
-            )
-          }
+          {categories.map((category) => (
+            <CategoriesGridItem
+              key={`category-${category.linkTitle}`}
+              imageSrc={category.imageSrc}
+              linkTitle={category.linkTitle}
+              isWide={category.isWide}
+              hasTopMargin={category.hasTopMargin}
+            />
+          ))}
         </div>
       </section>
       <section>
@@ -110,7 +116,9 @@ export const HomePage = () => {
             <button onClick={(e) => doRightSlide(e)}>right</button>
           </div>
           <div className="carousel-wrapper">
-            <div className="carousel-item" style={{marginLeft: leftMargin}}>1</div>
+            <div className="carousel-item" style={{ marginLeft: leftMargin }}>
+              1
+            </div>
             <div className="carousel-item">2</div>
             <div className="carousel-item">3</div>
             <div className="carousel-item">4</div>

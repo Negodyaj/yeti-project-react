@@ -1,4 +1,4 @@
-import "./CategoriesGridItem.scss";
+import './CategoriesGridItem.scss';
 
 export interface CategoriesGridItemProps {
   imageSrc: string;
@@ -13,12 +13,14 @@ export const CategoriesGridItem = (props: CategoriesGridItemProps) => {
 
   const clickHandler = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     event.preventDefault();
-  }
-  
+  };
+
   return (
     <div className={className}>
       <img src={imageSrc} alt="" />
-      <a href="" onClick={(event) => clickHandler(event)}>{linkTitle}</a>
+      <a href="/" onClick={(event) => clickHandler(event)}>
+        {linkTitle}
+      </a>
     </div>
   );
 };

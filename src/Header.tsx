@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import "./Header.scss";
+import './Header.scss';
+import { Link } from 'react-router-dom';
+import { RootState } from './store/store';
+import { UserWidget } from './shared/UserWidget/UserWidget';
+import { logOut } from './shared/UserWidget/userWidget.slice';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from './logo.svg';
-import { UserWidget } from "./shared/UserWidget/UserWidget";
-import { RootState } from "./store/store";
-import { useDispatch, useSelector } from "react-redux";
-import { logOut } from "./shared/UserWidget/userWidget.slice";
 
 export const Header = () => {
   const dispatch = useDispatch();
   const userWidgetState = useSelector((state: RootState) => state.userWidget);
-  
+
   const onLogOutClick = () => {
     dispatch(logOut());
   };
@@ -28,16 +28,16 @@ export const Header = () => {
           <Link to="/" className="nav-link">
             КОНТАКТЫ
           </Link>
-          {
-            userWidgetState.name && <Link to="/" className="nav-link">
+          {userWidgetState.name && (
+            <Link to="/" className="nav-link">
               ЛИЧНЫЙ КАБИНЕТ
             </Link>
-          }
+          )}
           <Link to="/" className="nav-link">
             КОРЗИНА (0)
           </Link>
-          {
-            !userWidgetState.name && <>
+          {!userWidgetState.name && (
+            <>
               <Link to="/login" className="nav-link">
                 Login
               </Link>
@@ -45,12 +45,12 @@ export const Header = () => {
                 Register
               </Link>
             </>
-          }
-          {
-            userWidgetState.name && <button onClick={onLogOutClick} className="nav-link">
+          )}
+          {userWidgetState.name && (
+            <button onClick={onLogOutClick} className="nav-link">
               Log out
             </button>
-          }
+          )}
           <UserWidget />
         </nav>
         <button className="burger-menu mobile-only">...</button>
