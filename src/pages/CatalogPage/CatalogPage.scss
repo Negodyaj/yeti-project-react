@@ -1,0 +1,18 @@
+.catalog-page {
+  .page-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+}

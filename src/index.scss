@@ -14,13 +14,31 @@ code {
 
 form {
   font-size: 20px;
+
+  .form-label {
+    font-weight: bold;
+    font-size: 22px;
+  }
   
-  label ~ label {
-    display: block;
+  .form-label ~ .form-label {
     margin-top: 16px;
+  }
+
+  .form-control {
+    display: flex;
   }
 
   .validation-error {
     color: tomato;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 8px 16px;
+    width: 100%;
+  }
+
+  .input-wrapper + .input-wrapper {
+    margin-left: 8px;
   }
 }

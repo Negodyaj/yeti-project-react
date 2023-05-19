@@ -1,0 +1,27 @@
+.product-card {
+  .product-image {
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+  }
+
+  .product-title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .product-price {
+    font-size: 20px;
+  }
+
+  .available-colors {
+    display: flex;
+    gap: 8px;
+  }
+
+  .product-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;    
+  }
+}
