@@ -1,12 +1,12 @@
 import './CatalogPage.scss';
-//import * as yup from 'yup';
 import { Controller, useForm } from 'react-hook-form';
 import { CustomSelect } from '../../shared/CustomSelect/CustomSelect';
+import { Navigation, Pagination } from 'swiper';
 import { ProductCard } from '../../shared/ProductCard/ProductCard';
 import { RootState } from '../../store/store';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { filter } from './catalogPage.slice';
 import { useDispatch, useSelector } from 'react-redux';
-//import { yupResolver } from '@hookform/resolvers/yup';
 
 type FormData = {
   priceFrom: number;
@@ -102,13 +102,39 @@ export const CatalogPage = () => {
           {state.filteredProducts.map((product) => (
             <ProductCard
               key={`product-${product.id}`}
+              id={product.id}
               title={product.title}
               imageColor={product.imageColor}
+              image={product.image}
               colors={product.colors}
               price={product.price}
             />
           ))}
         </div>
+      </div>
+      <h2>You also may like these products:</h2>
+      <div className="carousel-wrapper">
+        <Swiper
+          spaceBetween={42}
+          slidesPerView={5}
+          navigation={true}
+          pagination={{
+            dynamicBullets: true,
+          }}
+          modules={[Navigation, Pagination]}
+        >
+          {state.products.map((product) => (
+            <SwiperSlide key={`product-${product.id}`}>
+              <ProductCard
+                id={product.id}
+                title={product.title}
+                imageColor={product.imageColor}
+                colors={product.colors}
+                price={product.price}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

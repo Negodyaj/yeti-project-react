@@ -7,6 +7,7 @@ const tempProducts = [
     categoryId: 1,
     title: 'Product 1',
     imageColor: 'red',
+    //image: '/assets/products/product1.png',
     colors: ['black', 'orange'],
     sizes: ['XS', 'S', 'L'],
     price: 1000,

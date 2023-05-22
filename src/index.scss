@@ -42,3 +42,20 @@ form {
     margin-left: 8px;
   }
 }
+
+.carousel-wrapper {
+  .swiper {
+    padding: 0 40px 30px 40px;
+  }
+  .swiper-button-prev {
+    left: -2px;
+  }
+
+  .swiper-button-next {
+    right: -2px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #FF3F00;
+  }
+}

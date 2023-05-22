@@ -29,7 +29,7 @@ export const Header = () => {
             КОНТАКТЫ
           </Link>
           {userWidgetState.name && (
-            <Link to="/" className="nav-link">
+            <Link to="/profile" className="nav-link">
               ЛИЧНЫЙ КАБИНЕТ
             </Link>
           )}
