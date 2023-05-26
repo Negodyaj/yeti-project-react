@@ -2,6 +2,7 @@ import { RootState } from '../../store/store';
 import { loadData } from './profilePage.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
+import { error } from 'console';
 
 export const ProfilePage = () => {
   const dispatch = useDispatch();

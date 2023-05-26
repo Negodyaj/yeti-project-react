@@ -5,8 +5,10 @@ import { Navigation, Pagination } from 'swiper';
 import { ProductCard } from '../../shared/ProductCard/ProductCard';
 import { RootState } from '../../store/store';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { filter } from './catalogPage.slice';
+import { baseUrl } from '../../shared/consts';
+import { filter, getProducts } from './catalogPage.slice';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 type FormData = {
   priceFrom: number;
@@ -31,6 +33,14 @@ export const CatalogPage = () => {
     formState: { errors },
     control,
   } = useForm<FormData>();
+
+  useEffect(() => {
+    fetch(`${baseUrl}/products`)
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(getProducts(json));
+      });
+  }, []);
 
   const categoryOptions = [
     { value: 1, label: 'Snowboards' },
